@@ -14,6 +14,9 @@ app.get("/", function(req, res){
     res.sendFile( __dirname +"/signup.html");
 });
 
+var myKey = config.MY_KEY;
+
+
 //post route
 app.post("/", function(req, res){
     const firstName = req.body.fName; //Should use the name att from input as fname
@@ -40,7 +43,7 @@ app.post("/", function(req, res){
 
     const options = {
         method: 'POST',
-        auth: "amr1:93add41ea551c1324292d1a8491c8f86-us21"
+        auth: "amr1:"+myKey
     }
 
     const request = https.request(url, options, function(response){
@@ -69,7 +72,7 @@ app.listen(process.env.PORT || 3000, function(){  //change port 3000 to process.
 });
 
     //api key 
-    // 93add41ea551c1324292d1a8491c8f86-us21
+    // ca7f*********-us21
 
     //list id
     //b7a64b635f
