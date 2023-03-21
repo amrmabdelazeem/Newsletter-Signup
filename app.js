@@ -14,9 +14,6 @@ app.get("/", function(req, res){
     res.sendFile( __dirname +"/signup.html");
 });
 
-var myKey = config.MY_KEY;
-
-
 //post route
 app.post("/", function(req, res){
     const firstName = req.body.fName; //Should use the name att from input as fname
@@ -43,7 +40,7 @@ app.post("/", function(req, res){
 
     const options = {
         method: 'POST',
-        auth: "amr1:"+myKey
+        auth: "amr1:"+process.env.MY_KEY
     }
 
     const request = https.request(url, options, function(response){
